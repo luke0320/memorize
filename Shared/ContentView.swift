@@ -16,7 +16,7 @@ struct ContentView: View {
         "🛵", "🏍", "🛺", "🚃", "🚝", "🚄"
     ]
     
-    @State var emojiCount = 5
+    @State var emojiCount = 8
     
     var body: some View {
         VStack {
@@ -29,37 +29,9 @@ struct ContentView: View {
                 }
             }
             .foregroundColor(.orange)
-            Spacer()
-            HStack {
-                remove
-                Spacer()
-                add
-            }
-            .padding(.horizontal)
-            .font(.largeTitle)
         }
         .padding()
         
-    }
-    
-    var remove: some View {
-        Button {
-            if emojiCount > 1 {
-                emojiCount -= 1
-            }
-        } label: {
-            Image(systemName: "minus.circle")
-        }
-    }
-    
-    var add: some View {
-        Button {
-            if emojiCount < emojis.count {
-                emojiCount += 1
-            }
-        } label: {
-            Image(systemName: "plus.circle")
-        }
     }
 }
 
