@@ -7,7 +7,9 @@
 
 import Foundation
 
-class EmojiMemoryGame {
+class EmojiMemoryGame: ObservableObject {
+    
+    typealias Card = MemoryGame<String>.Card
     
     static let emojis = [
         "🚘", "🚕", "🚙", "🚌", "🚗", "🚎",
@@ -16,11 +18,11 @@ class EmojiMemoryGame {
         "🛵", "🏍", "🛺", "🚃", "🚝", "🚄"
     ]
     
-    typealias Card = MemoryGame<String>.Card
-    
-    private var model: MemoryGame<String> = MemoryGame(numberOfPairsOfCards: 4) { emojis[$0] }
-    
+    @Published private var model: MemoryGame<String> = MemoryGame(numberOfPairsOfCards: 4) { emojis[$0] }
     
     var cards: [Card] { model.cards }
     
+    func choose(_ card: Card) {
+        model.choose(card)
+    }
 }
