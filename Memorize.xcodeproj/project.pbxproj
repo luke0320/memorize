@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AD3F81127B2408700457C7F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1AD3F81027B2408700457C7F /* README.md */; };
+		1AD3F81227B2408700457C7F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1AD3F81027B2408700457C7F /* README.md */; };
 		A350F5C427AD27B500864FEB /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A350F5C327AD27B500864FEB /* MemoryGame.swift */; };
 		A350F5C527AD27B500864FEB /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A350F5C327AD27B500864FEB /* MemoryGame.swift */; };
 		A350F5C727AD2AB600864FEB /* EmojiMemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A350F5C627AD2AB600864FEB /* EmojiMemoryGame.swift */; };
@@ -20,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1AD3F81027B2408700457C7F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A350F5C327AD27B500864FEB /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
 		A350F5C627AD2AB600864FEB /* EmojiMemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGame.swift; sourceTree = "<group>"; };
 		A3FF2D0227945E26008B7569 /* MemorizeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeApp.swift; sourceTree = "<group>"; };
@@ -51,6 +54,7 @@
 		A3FF2CFC27945E26008B7569 = {
 			isa = PBXGroup;
 			children = (
+				1AD3F81027B2408700457C7F /* README.md */,
 				A3FF2D0127945E26008B7569 /* Shared */,
 				A3FF2D1027945E27008B7569 /* macOS */,
 				A3FF2D0A27945E27008B7569 /* Products */,
@@ -165,6 +169,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AD3F81127B2408700457C7F /* README.md in Resources */,
 				A3FF2D1627945E27008B7569 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,6 +178,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AD3F81227B2408700457C7F /* README.md in Resources */,
 				A3FF2D1727945E27008B7569 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
