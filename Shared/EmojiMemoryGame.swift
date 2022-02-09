@@ -11,14 +11,14 @@ class EmojiMemoryGame: ObservableObject {
     
     typealias Card = MemoryGame<String>.Card
     
-    static let emojis = [
+    private static let emojis = [
         "🚘", "🚕", "🚙", "🚌", "🚗", "🚎",
         "🏎", "🚓", "🚑", "🚒", "🚐", "🛻",
         "🚚", "🚛", "🚜", "🦼", "🛴", "🚲",
         "🛵", "🏍", "🛺", "🚃", "🚝", "🚄"
     ]
     
-    @Published private var model: MemoryGame<String> = MemoryGame(numberOfPairsOfCards: 4) { emojis[$0] }
+    @Published private var model = MemoryGame(numberOfPairsOfCards: 4) { emojis[$0] }
     
     var cards: [Card] { model.cards }
     
