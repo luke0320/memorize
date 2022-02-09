@@ -18,7 +18,7 @@ class EmojiMemoryGame: ObservableObject {
         "🛵", "🏍", "🛺", "🚃", "🚝", "🚄"
     ]
     
-    @Published private var model = MemoryGame(numberOfPairsOfCards: 4) { emojis[$0] }
+    @Published private var model = MemoryGame(numberOfPairsOfCards: 10) { emojis[$0] }
     
     var cards: [Card] { model.cards }
     
