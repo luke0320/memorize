@@ -13,11 +13,15 @@ struct EmojiMemoryGameView: View {
     
     var body: some View {
         AspectVGrid(items: game.cards, aspectRatio: 2/3) { card in
-            CardView(card: card)
-                .padding(4)
-                .onTapGesture {
-                    game.choose(card)
-                }
+            if card.isMatched && !card.isFaceUp {
+                Color.clear.opacity(0)
+            } else {
+                CardView(card: card)
+                    .padding(4)
+                    .onTapGesture {
+                        game.choose(card)
+                    }
+            }
         }
         .foregroundColor(.orange)
         .padding()
@@ -42,32 +46,35 @@ struct CardView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                let shape = RoundedRectangle(cornerRadius: geometry.size.width * Constants.cornerRadiusScale)
-                if card.isFaceUp {
-                    shape.foregroundColor(.white)
-                    shape.strokeBorder(lineWidth: Constants.lineWidth)
-                    Pie(
-                        startAngle: Angle(degrees: -90),
-                        endAngle: Angle(degrees: 60)
-                    )
-                        .padding(5)
-                        .opacity(0.5)
-                    Text(card.content).font(font(in: geometry.size))
-                } else {
-                    shape
-                        .opacity(card.isMatched ? 0 : 1)
-                }
+                Pie(
+                    startAngle: Angle(degrees: -90),
+                    endAngle: Angle(degrees: 60)
+                )
+                    .padding(5)
+                    .opacity(0.5)
+                Text(card.content)
+                    .font(font(in: geometry.size))
+                    .rotationEffect(Angle(degrees: card.isMatched ? 360 : 0))
+                    .animation(.easeInOut(duration: 1), value: card.isMatched)
+                    // NEW API Actually fix that wanky animation with "Font Cannot be Animated, use scaleEffect to change font size"
+                
+//                    .font(.system(size: Constants.fontSize))
+//                    .scaleEffect(scale(thatFit: geometry.size))
             }
+            .cardify(isFaceUp: card.isFaceUp)
         }
     }
+    
+//    private func scale(thatFit size: CGSize) -> CGFloat {
+//        min(size.width, size.height) / Constants.fontSize * Constants.fontScale
+//    }
     
     private func font(in size: CGSize) -> Font {
         .system(size: min(size.width, size.height) * Constants.fontScale)
     }
     
     private struct Constants {
-        static let cornerRadiusScale: CGFloat = 0.2
-        static let lineWidth: CGFloat = 3
         static let fontScale: CGFloat = 0.7
+//        static let fontSize: CGFloat = 32
     }
 }
