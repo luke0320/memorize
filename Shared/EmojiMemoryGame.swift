@@ -18,11 +18,24 @@ class EmojiMemoryGame: ObservableObject {
         "🛵", "🏍", "🛺", "🚃", "🚝", "🚄"
     ]
     
-    @Published private var model = MemoryGame(numberOfPairsOfCards: 10) { emojis[$0] }
+    private static func createMemoryGame() -> MemoryGame<String> {
+        MemoryGame(numberOfPairsOfCards: 5) { emojis[$0] }
+    }
+    
+    @Published private var model = createMemoryGame()
     
     var cards: [Card] { model.cards }
     
+    // MARK: - Intent(s)
     func choose(_ card: Card) {
         model.choose(card)
+    }
+    
+    func shuffle() {
+        model.shuffle()
+    }
+    
+    func restart() {
+        model = EmojiMemoryGame.createMemoryGame()
     }
 }
