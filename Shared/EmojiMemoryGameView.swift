@@ -141,7 +141,7 @@ struct CardView: View {
                     if card.isConsumingBonusTime {
                         Pie(
                             startAngle: startAngle,
-                            endAngle: Angle(degrees: (1-animatedBonusRemaining)*360-90)
+                            endAngle: Angle(degrees: (-animatedBonusRemaining) * 360 - 90)
                         )
                             .onAppear {
                                 animatedBonusRemaining = card.bonusRemaining
@@ -152,7 +152,7 @@ struct CardView: View {
                     } else {
                         Pie(
                             startAngle: startAngle,
-                            endAngle: Angle(degrees: (1-card.bonusRemaining)*360-90)
+                            endAngle: Angle(degrees: (-card.bonusRemaining) * 360 - 90)
                         )
                     }
                 }
